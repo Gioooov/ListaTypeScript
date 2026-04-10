@@ -1,5 +1,18 @@
+// {
+//     "compilerOptions": {
+//         "target": "ESNext",
+//         "module": "ESNext",
+//         "moduleResolution": "bundler", // Ou "nodenext"
+//         "outDir": "./dist",
+//         "rootDir": "./src",
+//         "strict": true,
+//         "lib": ["ESNext", "DOM"]
+//     }
+// }
+
 {
   "compilerOptions": {
+<<<<<<< Updated upstream
     /* 1. Isolamento de arquivos: Força cada arquivo a ser um mundo próprio, 
        resolvendo o erro de 'variável já declarada' entre arquivos diferentes. */
     //"moduleDetection": "force", 
@@ -27,4 +40,29 @@
   
   /* 7. Exclusão: Impede que o TS tente validar arquivos dentro da pasta dist ou node_modules. */
   //"exclude": ["node_modules", "dist"]
+=======
+    /* 1. O SEGREDO: 'moduleDetection: force' trata cada arquivo como isolado,
+       mesmo que você não use a palavra 'export' ou 'import'. 
+       Isso mata o erro de "Variável já declarada" no VS Code. */
+    "moduleDetection": "force", 
+    /* 2. Para rodar no Navegador ou Node moderno, mude o 'module' para 'ESNext' ou 'None'.
+       Se você quer apenas que o código rode simples no navegador via script, 
+       use "CommonJS" apenas se for rodar exclusivamente no Node. */
+    "module": "ESNext", 
+    /* 3. Versão do JavaScript de saída. */
+    "target": "ES6",
+    /* 4. Onde estão seus arquivos .ts originais. */
+    "rootDir": "./src",
+    /* 5. Onde o TS vai salvar os arquivos .js convertidos. */
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+  },
+  /* 6. Garante que o TS só olhe para a pasta src e ignore a dist. */
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+>>>>>>> Stashed changes
 }
