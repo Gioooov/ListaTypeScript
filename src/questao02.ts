@@ -1,5 +1,3 @@
-
-
 function ePar(valor:number): any{
 if(valor % 2==0){
     console.log("O numero é par.")
@@ -10,6 +8,6 @@ if(valor % 2==0){
 
 
 let entrada = prompt("Diga um numero:")
-let  numero: number = Number(entrada)
+let  numero:number = Number(entrada)
 
 ePar(numero)
