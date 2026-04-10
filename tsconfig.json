@@ -1,12 +1,30 @@
 {
-"compilerOptions": {
-"target": "es2016",
-"module": "commonjs",
-"rootDir": "./src",
-"outDir": "./dist",
-"esModuleInterop": true,
-"forceConsistentCasingInFileNames": true,
-"strict": true,
-"skipLibCheck": true
-}
+  "compilerOptions": {
+    /* 1. Isolamento de arquivos: Força cada arquivo a ser um mundo próprio, 
+       resolvendo o erro de 'variável já declarada' entre arquivos diferentes. */
+    //"moduleDetection": "force", 
+    
+    /* 2. Versão do JS: Define para qual versão do JavaScript o código será traduzido. */
+    "target": "es2016",
+    
+    /* 3. Padrão de Módulos: Usa o CommonJS, que é o padrão nativo do Node.js. */
+    "module": "commonjs",
+    
+    /* 4. Pasta de Entrada: O TS vai procurar seus códigos .ts dentro da pasta /src. 
+       Certifique-se de que seus arquivos de exercícios estão lá dentro! */
+    "rootDir": "./src",
+    
+    /* 5. Pasta de Saída: Onde o arquivo .js final será criado. */
+    "outDir": "./dist",
+    
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  /* 6. Inclusão: Diz ao TS para vigiar todos os arquivos .ts dentro da pasta src. */
+  //"include": ["src/**/*"],
+  
+  /* 7. Exclusão: Impede que o TS tente validar arquivos dentro da pasta dist ou node_modules. */
+  //"exclude": ["node_modules", "dist"]
 }
