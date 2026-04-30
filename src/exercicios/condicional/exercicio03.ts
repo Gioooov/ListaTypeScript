@@ -10,10 +10,10 @@ export function exercicio03(): void {
     let n1: number = Number(prompt('Diga um numero para fazer seu calculo: '))
     let n2: number = Number(prompt('Diga outro numero:'))
 
-    let entrada = prompt('1 - Soma' +
+    let entrada:number = Number(prompt('1 - Soma' +
         '\n 2 - Subtração' +
         '\n 3 - Multiplicação' +
-        '\n 4 - Divisão')
+        '\n 4 - Divisão'))
 
     let menu = Number(entrada)
 

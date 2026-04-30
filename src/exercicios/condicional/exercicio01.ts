@@ -1,7 +1,8 @@
 // Crie um programa que leia um número e informe se ele é:
 //  Par ou Ímpar
 //  Positivo ou Negativo
- export function exercicio01(): void {
+export const exercicio01 = () => {
+
 let numero: number= Number(prompt("Diga um numero:"))
     if(isNaN(numero)){
         console.log('Erro: isso não é um número')
@@ -17,4 +18,5 @@ let numero: number= Number(prompt("Diga um numero:"))
     }else{
         console.log('E negativo.')
     }
+
  }

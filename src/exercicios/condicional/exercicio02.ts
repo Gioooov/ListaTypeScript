@@ -14,10 +14,10 @@
 // j) Outubro (10): Primavera
 // k) Novembro (11): Primavera
 // l) Dezembro (12): Primavera
+// export function exercicio02(): void {
 export function exercicio02(): void {
-
-let entrada = (prompt('Diga uma mês (em numero) para saber sua estação.'))
-let mes = Number(entrada)
+let entrada = String(prompt('Diga uma mês (em numero) para saber sua estação.'))
+let mes:number = Number(entrada)
 
 let estacao:string = "" // TypeScript não reclama que a variável pode estar sem valor.
 
