@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.categoria h2 {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin: 40px 0 30px 0; 
+    
+    /* Opcional: Adicionar uma linha embaixo para separar melhor */
+    /* border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    display: block;
+    width: 100%; */
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Painel Lateral Esquerdo */
+.painel-lateral {
+  width: 40%; /* Ajuste conforme preferir */
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+  background: #111; /* Leve destaque do fundo */
+}
+
+.card {
+  background: #444;
+  border-radius: 15px;
+  padding: 20px;
+  flex: 1; /* Faz os 3 cards dividirem o espaço igualmente */
+}
+.card.codigo {
+    overflow: hidden; /* Garante que nada saia das bordas arredondadas */
+    display: flex;
+    flex-direction: column;
+}
+
+pre {
+    background: #222; /* Cor de fundo interna */
+    padding: 15px;
+    border-radius: 8px;
+    
+    /* O SEGREDO ESTÁ AQUI: */
+    overflow-x: auto;  /* Se a linha for comprida, cria scroll horizontal */
+    overflow-y: auto;  /* Se o código for alto, cria scroll vertical */
+    max-height: 400px; /* Define uma altura máxima para não esticar o card demais */
+    
+    white-space: pre-wrap; /* Opcional: faz o texto quebrar linha automaticamente */
+    word-wrap: break-word;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    color: #f8f8f2; /* Cor de texto estilo terminal */
+}
+.card.enunciado {
+    background-color: #fff; /* Mantendo o fundo branco */
+    color: #000000;
+    padding: 20px;
+    border-radius: 15px;
+    
+    /* Sombra: Deslocamento X, Deslocamento Y, Desfoque, Espalhamento, Cor */
+    box-shadow: 0 10px 0px rgba(255, 0, 111, 0.952); 
+    
+    /* Opcional: Uma borda bem fina para dar mais destaque */
+    border: 1px solid rgba(223, 111, 111, 0.1);
+}
+.enunciado { background: #fff; color: #000;  }
+.terminal {  background:#0d1117; color:#00ff88; font-family: Consolas; }
+
+/* Lado Direito */
+.menu-exercicios {
+  width: 60%;
+  padding: 40px;
+  text-align: center;
+}
+
+.grid-estrelas {
+  display: grid;
+   justify-items: center;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; /* Espaço entre as estrelas */
+    margin-top: 20px;
+    width: 100%; /* Garante que ocupe a largura da seção */
+}
+
+/* O Botão Estrela */
+.btn-estrela {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem; /* Tamanho da estrela */
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-estrela span {
+  font-size: 0.8rem;
+  color: #fff;
+  margin-top: 5px;
+}
+
+/* Efeito de ficar maior ao clicar/hover */
+.btn-estrela:hover, .btn-estrela:active {
+  transform: scale(1.2);
+}
+
+/* Cores das estrelas */
+.pink { color: #ff007f; }
+.red { color: #ff4d4d; }
+.purple { color: #a020f0; }
+.blue { color: #8bf020; }
+
+/* Responsividade para telas pequenas (celulares) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .painel-lateral {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .menu-exercicios {
+    width: 100%;
+  }
+}
+
+/* Efeito de Glitter e Cintilância para as Estrelas */
+.btn-estrela span, 
+.btn-estrela.star-icon { /* Depende de como você está mostrando a estrela no HTML */
+    color: #fff; /* O centro pode ser branco para um brilho intenso */
+    text-shadow: 
+        0 0 10px #fff,  /* Brilho interno (núcleo) */
+        /* 0 0 20px #ff007f, Cor principal (glow) */
+        /* 0 0 30px #ff007f, Extensão do glow */
+        0 0 40px #ff007f, /* Brilho suave externo */
+        /* -2px -2px 0px rgba(255, 255, 255, 0.4), Pontinhos de luz (glitter) */
+        /* 2px 2px 0px rgba(255, 255, 255, 0.4);  */
+}
+
+/* Efeito de Pulsação (Cintilância) */
+@keyframes scintilla {
+    0%   { text-shadow: 0 0 10px #fff, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f; opacity: 1; }
+    50%  { text-shadow: 0 0 5px #fff, 0 0 10px #ff007f, 0 0 15px #ff007f, 0 0 20px #ff007f; opacity: 0.8; }
+    10% { text-shadow: 0 0 10px #fff, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f; opacity: 1; }
+}
+
+/* Aplica a animação para cintilar */
+.grid-estrelas .btn-estrela {
+    animation: scintilla 2s ease-in-out infinite; /* Cintila continuamente */
+    transition: transform 0.3s ease; /* Mantém o efeito de escala ao passar o mouse */
+}
+
+/* Se você usar uma cor diferente para cada categoria, mude o glow aqui: */
+.grid-estrelas .btn-estrela.purple { 
+    animation: scintilla_purple 2s ease-in-out infinite;
+}
